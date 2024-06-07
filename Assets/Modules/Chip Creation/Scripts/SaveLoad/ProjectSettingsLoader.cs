@@ -64,6 +64,8 @@ namespace DLS.ChipCreation
 			{
 				writer.Write(saveString);
 			}
+			PlayerPrefs.SetString("forceSave", string.Empty);
+			PlayerPrefs.Save();
 		}
 
 		public static void CreateProject(string projectName)
@@ -81,6 +83,8 @@ namespace DLS.ChipCreation
 
 			string moveToPath = FileHelper.EnsureUniqueDirectoryName(Path.Combine(deleteDirectoryPath, projectName));
 			Directory.Move(path, moveToPath);
+			PlayerPrefs.SetString("forceSave", string.Empty);
+			PlayerPrefs.Save();
 
 			Debug.Log(path);
 			Debug.Log(moveToPath);

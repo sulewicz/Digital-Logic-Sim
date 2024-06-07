@@ -95,6 +95,8 @@ namespace DLS.ChipCreation
 				writer.Write(serializedChip);
 				Debug.Log("Saved to: " + saveFilePath);
 			}
+			PlayerPrefs.SetString("forceSave", string.Empty);
+			PlayerPrefs.Save();
 		}
 
 		static string GetChipFilePath(string projectName, string chipName)
